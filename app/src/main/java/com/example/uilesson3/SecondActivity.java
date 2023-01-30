@@ -25,19 +25,16 @@ public class SecondActivity extends AppCompatActivity {
         //1、实例化控件
         image = findViewById(R.id.id_mickey);
         root = findViewById(R.id.Mickey_activity);
-
         //2、获得焦点
         root.setFocusable(true); //有获得焦点的能力
         root.requestFocus(); //请求获得
-
         //3、获取图像控件的布局参数
         layoutParams = (LinearLayout.LayoutParams) image.getLayoutParams();
-
         //4、给线性根布局注册按键监听器，实现监听器接口，编写事件处理方法
         root.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                //根据按键修改图像的布局参数，即改变图像的位置
+                //4.1、根据按键修改图像的布局参数，即改变图像的位置
                 switch (i) {
                     case KeyEvent.KEYCODE_DPAD_UP:  // 19, 按上方向键
                         layoutParams.topMargin = layoutParams.topMargin - STEP;
@@ -49,9 +46,11 @@ public class SecondActivity extends AppCompatActivity {
                         layoutParams.leftMargin = layoutParams.leftMargin - STEP;
                         break;
                     case KeyEvent.KEYCODE_DPAD_RIGHT:// 22, 按右方向键
-                        layoutParams.rightMargin = layoutParams.rightMargin + STEP;
+                        layoutParams.rightMargin = layoutParams.rightMargin - STEP;
                         break;
                 }
+                //4.2、更新图像控件的布局参数，即使动态布局生效
+                image.setLayoutParams(layoutParams);
                 return false;
             }
         });
