@@ -46,21 +46,31 @@
         android:layout_height="wrap_content">
 
         <RadioGroup
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <RadioButton
                 android:id="@+id/rb_m"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:checked="true"
-                android:text="男"/>
+                android:background="#ffff99"
+                android:text="A"/>
             <RadioButton
                 android:id="@+id/rb_f"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="女"/>
+                android:layout_weight="1"
+                android:text="B"/>
+            <RadioButton
+                android:id="@+id/rb_e"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#ffff99"
+                android:text="C"/>
         </RadioGroup>
 
     </LinearLayout>
